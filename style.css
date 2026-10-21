@@ -1,0 +1,541 @@
+:root {
+    --green: #25382f;
+    --green-soft: #3a5246;
+    --ivory: #f7f4ee;
+    --paper: #fffdf9;
+    --gold: #b8975a;
+    --ink: #2b2b28;
+
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Jost", system-ui, sans-serif;
+    --script: "Pinyon Script", cursive;
+}
+
+/* ===== RESET DASAR ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--ink);
+    background-color: var(--ivory);
+    min-height: 100vh;
+}
+
+body.locked {
+    overflow: hidden;
+}
+
+/* ===== TEKS ===== */
+.script {
+    font-family: var(--script);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.script span {
+    color: var(--gold);
+}
+
+.small {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    font-weight: 300;
+}
+
+/* ===== TOMBOL ===== */
+.btn {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    padding: 0.85rem 2rem;
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    background: var(--gold);
+    color: var(--paper);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--gold);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn.ghost {
+    background: transparent;
+    color: var(--green);
+    border-color: var(--green);
+}
+
+.btn.ghost:hover {
+    background: var(--green);
+    color: var(--paper);
+}
+
+:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+/* ===== HALAMAN PEMBUKA UNDANGAN ===== */
+.cover {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: grid;
+    place-items: center;
+    background: var(--green);
+    color: var(--ivory);
+    text-align: center;
+    padding: 1.5rem;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.cover.open {
+    transform: translateY(-100%);
+    pointer-events: none;
+}
+
+.frame {
+    width: min(100%, 460px);
+    padding: 3rem 1.5rem;
+    border: 1px solid var(--gold);
+    outline: 1px solid var(--gold);
+    outline-offset: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cover h1 {
+    font-size: clamp(3rem, 14vw, 4.5rem);
+    margin: 0.5rem 0 1.5rem;
+}
+
+.guest {
+    font-size: 1.7rem;
+    font-style: italic;
+    margin-bottom: 1.2rem;
+}
+
+/* ===== LATAR BELAKANG FOTO SETELAH UNDANGAN DIBUKA ===== */
+
+
+/* ===== FOTO LATAR BELAKANG UNTUK HP ===== */
+
+body.opened {
+    background-image:
+        linear-gradient(rgba(37, 56, 47, 0.25),
+            rgba(37, 56, 47, 0.25)),
+        url("foto-prewedding.jpg");
+
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Pengaturan khusus HP */
+@media screen and (max-width: 768px) {
+    body.opened {
+        background-image:
+            linear-gradient(rgba(37, 56, 47, 0.20),
+                rgba(37, 56, 47, 0.20)),
+            url("foto-prewedding.jpg");
+
+        background-size: auto 100vh;
+        background-position: center top;
+        background-repeat: repeat-y;
+        background-attachment: scroll;
+    }
+}
+
+
+
+/* ===== BAGIAN HERO ===== */
+.hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--green);
+    color: var(--ivory);
+}
+
+.big {
+    font-size: clamp(3.4rem, 16vw, 6.5rem);
+    margin: 0.6rem 0;
+}
+
+.date {
+    font-size: 1.4rem;
+    font-style: italic;
+    margin-bottom: 2.5rem;
+}
+
+/* ===== HITUNG MUNDUR ===== */
+.countdown {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.countdown div {
+    width: 4.6rem;
+    padding: 0.8rem 0;
+    border: 1px solid var(--gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown b {
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.countdown span {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+}
+
+/* ===== BAGIAN UMUM ===== */
+.section {
+    padding: 5rem 1.5rem;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--green);
+    margin-bottom: 2.5rem;
+}
+
+.title::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 1px;
+    background: var(--gold);
+    margin: 1rem auto 0;
+}
+
+.lead {
+    margin-bottom: 1.5rem;
+}
+
+/* ===== KUTIPAN ===== */
+.quote p {
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+.quote small {
+    display: block;
+    margin-top: 1rem;
+    font-family: var(--sans);
+    color: var(--gold);
+}
+
+/* ===== PROFIL MEMPELAI ===== */
+.person {
+    margin-bottom: 3rem;
+}
+
+.person:last-child {
+    margin-bottom: 0;
+}
+
+.photo {
+    width: 190px;
+    height: 250px;
+    margin: 0 auto 1.5rem;
+    border-radius: 95px 95px 0 0;
+    border: 1px solid var(--gold);
+    padding: 8px;
+    overflow: hidden;
+}
+
+.photo span {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    border-radius: 87px 87px 0 0;
+    background: var(--green-soft);
+    color: var(--gold);
+    font-family: var(--script);
+    font-size: 5rem;
+}
+
+.person h3 {
+    font-size: 2.6rem;
+    color: var(white);
+}
+
+/* ===== ACARA DAN HADIAH ===== */
+.events,
+.gift {
+    max-width: none;
+    background: var(--paper);
+}
+
+.events>*,
+.gift>* {
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    background: var(--ivory);
+    border: 1px solid var(--gold);
+    padding: 2rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card h3 {
+    font-size: 1.8rem;
+    color: var(--green);
+    font-weight: 600;
+}
+
+.when {
+    margin: 0.5rem 0 1rem;
+    font-style: italic;
+}
+
+.rek {
+    font-family: var(--sans);
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    overflow-wrap: anywhere;
+}
+
+.gift .btn {
+    margin-top: 1.2rem;
+}
+
+/* ===== FORM RSVP ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    text-align: left;
+}
+
+label {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    font: inherit;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid #cfc7b6;
+    border-radius: 2px;
+    background: var(--paper);
+    color: var(--ink);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+form .btn {
+    align-self: center;
+    margin-top: 0.5rem;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: var(--green);
+    color: var(--ivory);
+    text-align: center;
+    padding: 4rem 1.5rem;
+}
+
+footer p {
+    max-width: 460px;
+    margin: 0 auto 1.5rem;
+}
+
+footer h2 {
+    font-size: 3rem;
+    color: var(--gold);
+}
+
+/* ==================================================
+   TAMPILAN SETELAH TOMBOL "BUKA UNDANGAN" DIKLIK
+   Foto latar belakang terlihat di bagian transparan.
+   ================================================== */
+
+body.opened .hero {
+    background: transparent;
+    color: var(--ivory);
+}
+
+body.opened .hero .title,
+body.opened .hero h1,
+body.opened .hero h2 {
+    color: var(--ivory);
+}
+
+body.opened .quote,
+body.opened .couple {
+    background: transparent;
+}
+
+body.opened .quote p,
+body.opened .quote .lead,
+body.opened .couple .lead {
+    color: var(--ivory);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+body.opened .quote .title,
+body.opened .couple .title {
+    color: var(--ivory);
+}
+
+body.opened .events,
+body.opened .gift {
+    background: rgba(255, 253, 249, 0.88);
+}
+
+body.opened .rsvp {
+    background: rgba(247, 244, 238, 0.9);
+}
+
+body.opened footer {
+    background: rgba(37, 56, 47, 0.92);
+}
+
+/* Pastikan konten berada di atas latar foto */
+body.opened main {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== RESPONSIVE: TABLET DAN HP ===== */
+@media (max-width: 768px) {
+    body.opened {
+        background-attachment: scroll;
+        background-position: center center;
+    }
+
+    .section {
+        padding: 4rem 1.25rem;
+    }
+
+    .countdown {
+        gap: 0.6rem;
+    }
+
+    .countdown div {
+        width: 4rem;
+    }
+
+    .countdown b {
+        font-size: 1.6rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        font-size: 1.05rem;
+    }
+
+    .frame {
+        padding: 2.5rem 1rem;
+    }
+
+    .countdown div {
+        width: 3.6rem;
+    }
+
+    .countdown b {
+        font-size: 1.4rem;
+    }
+
+    .countdown span {
+        font-size: 0.62rem;
+    }
+
+    .rek {
+        font-size: 1.2rem;
+    }
+}
+
+/* ===== AKSESIBILITAS: KURANGI ANIMASI ===== */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .cover {
+        transition: none;
+    }
+
+    .btn {
+        transition: none;
+    }
+}
+
+
+body.opened .person h3 {
+    color: #ffffff !important;
+}

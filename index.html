@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rapi Apriyanto & Rida Rosani</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="locked">
+
+    <!-- COVER -->
+    <section class="cover" id="cover">
+        <div class="frame">
+            <p class="small">Undangan Pernikahan</p>
+            <h1 class="script">Rapi <span>&</span> Rida</h1>
+            <p class="small">Kepada Yth.</p>
+            <p class="guest" id="guestName">Tamu Undangan</p>
+            <button class="btn" id="openBtn">Buka Undangan</button>
+        </div>
+    </section>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <p class="small">Kami akan menikah</p>
+            <h2 class="script big">Rapi <span>&</span> Rida</h2>
+            <p class="date">Rabu, 4 Agustus 2027</p>
+            <div class="countdown" id="countdown">
+                <div><b id="d">00</b><span>Hari</span></div>
+                <div><b id="h">00</b><span>Jam</span></div>
+                <div><b id="m">00</b><span>Menit</span></div>
+                <div><b id="s">00</b><span>Detik</span></div>
+            </div>
+        </section>
+
+        <!-- AYAT -->
+        <section class="section quote">
+            <p>"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu
+                sendiri, agar kamu merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."</p>
+            <small>QS. Ar-Rum: 21</small>
+        </section>
+
+        <!-- MEMPELAI -->
+        <section class="section quote">
+            <h2 class="title">Mempelai</h2>
+            <div class="person">
+                <div class="photo"><span>R</span></div>
+                <h3 class="script">Rapi Apriyanto, S.kom</h3>
+                <p>Putra pertama dari<br>Bapak Basuni & Ibu Enung Suryani</p>
+            </div>
+            <div class="person">
+                <div class="photo"><span>R</span></div>
+                <h3 class="script">Rida Rosani</h3>
+                <p>Putri kedua dari<br>Bapak Samli & Ibu Kayah</p>
+            </div>
+        </section>
+
+        <!-- ACARA -->
+        <section class="section events">
+            <h2 class="title">Waktu & Tempat</h2>
+            <article class="card">
+                <h3>Akad Nikah</h3>
+                <p class="when">Rabu, 4 Agustus 2027<br>Pukul 08.00 WIB</p>
+                <p>Kediaman Mempelai Wanita<br>Kp Cikancra, RT01/RW04, Desa Ciawi, Kecamatan Karangnunggal, Kabupaten
+                    Tasikmalaya</p>
+            </article>
+            <article class="card">
+                <h3>Resepsi</h3>
+                <p class="when">Rabu, 4 Agustus 2027<br>Pukul 11.00 – 14.00 WIB</p>
+                <p>Kediaman Mempelai Wanita<br>Kp Cikancra, RT01/RW04, Desa Ciawi, Kecamatan Karangnunggal, Kabupaten
+                    Tasikmalaya</p>
+            </article>
+            <a class="btn" target="_blank" rel="noopener" href="https://maps.app.goo.gl/uqzVSSep6BYnMx6XA?g_st=aw">Lihat
+                Lokasi</a>
+        </section>
+
+        <!-- HADIAH -->
+        <section class="section gift">
+            <h2 class="title">Tanda Kasih</h2>
+            <p class="lead">Kehadiran Anda adalah hadiah terbaik. Jika ingin memberi tanda kasih, dapat melalui:</p>
+            <div class="card">
+                <h3>Bank BRI</h3>
+                <p class="rek" id="rek">1234567890</p>
+                <p>a.n. Rapi Apriyanto</p>
+                <button class="btn ghost" id="copyBtn">Salin Nomor Rekening</button>
+            </div>
+        </section>
+
+        <!-- RSVP -->
+        <section class="section rsvp">
+            <h2 class="title">Konfirmasi Kehadiran</h2>
+            <form id="rsvpForm">
+                <label>Nama
+                    <input type="text" id="nama" required placeholder="Nama lengkap">
+                </label>
+                <label>Kehadiran
+                    <select id="hadir" required>
+                        <option value="Hadir">Insya Allah hadir</option>
+                        <option value="Tidak hadir">Mohon maaf, tidak bisa hadir</option>
+                    </select>
+                </label>
+                <label>Jumlah tamu
+                    <input type="number" id="jumlah" min="1" max="5" value="1">
+                </label>
+                <label>Ucapan & doa
+                    <textarea id="ucapan" rows="3" placeholder="Tulis ucapan untuk kedua mempelai"></textarea>
+                </label>
+                <button class="btn" type="submit">Kirim via WhatsApp</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>Merupakan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
+            <h2 class="script">Rapi & Rida</h2>
+        </footer>
+    </main>
+    <!-- MUSIK LATAR UNDANGAN -->
+    <audio id="backgroundMusic" preload="auto" loop>
+        <source src="musik.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
